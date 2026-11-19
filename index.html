@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أكاديمية محمد ياسين بوشطر للمقاولاتية والقيادة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-card: #161f33;
+      --border-color: #26324d;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --accent-gold: #f59e0b;
+      --accent-teal: #10b981;
+      --accent-blue: #3b82f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    /* Header & Hero */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .badge-top {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+
+    header p {
+      max-width: 720px;
+      margin: 0 auto 1.5rem;
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* Credentials Section */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 1.75rem;
+      font-size: 0.98rem;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .credential-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .credential-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-gold);
+    }
+
+    .cred-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.2rem 0.7rem;
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag-gold { background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); }
+    .tag-teal { background: rgba(16, 185, 129, 0.15); color: var(--accent-teal); }
+    .tag-blue { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); }
+
+    .credential-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .credential-card p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+    }
+
+    /* Filter Tabs */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent-gold);
+      color: #0b0f19;
+      border-color: var(--accent-gold);
+    }
+
+    /* Tracks & Resources */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .track-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .track-card.hidden {
+      display: none;
+    }
+
+    .track-header {
+      margin-bottom: 1.25rem;
+    }
+
+    .track-number {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .track-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .track-card p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .video-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1rem;
+    }
+
+    .video-list li {
+      margin-bottom: 0.65rem;
+      font-size: 0.92rem;
+      color: #e5e7eb;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .video-list li::before {
+      content: "▶";
+      color: var(--accent-teal);
+      font-size: 0.75rem;
+      margin-top: 0.35rem;
+    }
+
+    .yt-btn {
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid var(--border-color);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .yt-btn:hover {
+      background: #dc2626;
+      border-color: #dc2626;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    footer strong {
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge-top">منصة تعليمية وتوجيهية في ريادة الأعمال</div>
+    <h1>أكاديمية محمد ياسين بوشطر للمقاولاتية</h1>
+    <p>
+      مساحة معرفية مجانية موجهة للشباب وحاملي المشاريع في الجزائر، تجمع بين بناء العقلية القيادية، منهجية إنشاء المؤسسات الناشئة والمصغرة، والتسويق الرقمي الحديث.
+    </p>
+  </header>
+
+  <main class="container">
+    <!-- قسم الاعتمادات والمسار -->
+    <section aria-labelledby="credentials-heading">
+      <h2 id="credentials-heading" class="section-title">الاعتمادات والمسار الأكاديمي والمهني</h2>
+      <p class="section-subtitle">الركائز الرسمية والأكاديمية التي تقوم عليها رؤية الأكاديمية</p>
+
+      <div class="credentials-grid">
+        <div class="credential-card">
+          <span class="cred-tag tag-gold">اعتماد رسمي</span>
+          <h3>بطاقة المقاول الذاتي (Auto-Entrepreneur)</h3>
+          <p>
+            حاصل على بطاقة المقاول الذاتي المعتمدة في الجزائر، لممارسة الأنشطة المقاولاتية والاستيراد المصغر والخدمات الرقمية وفق الإطار القانوني الرسمي.
+          </p>
+        </div>
+
+        <div class="credential-card">
+          <span class="cred-tag tag-teal">تكوين مقاولاتي</span>
+          <h3>مركز تطوير المقاولاتية (CDE)</h3>
+          <p>
+            خريج تكوين مركز تطوير المقاولاتية (CDE - الدورة 17)، متخصص في دراسة الجدوى، بناء نماذج الأعمال (BMC)، والتخطيط المالي للمشاريع.
+          </p>
+        </div>
+
+        <div class="credential-card">
+          <span class="cred-tag tag-blue">تكوين جامعي</span>
+          <h3>جامعة وهران 1 أحمد بن بلة</h3>
+          <p>
+            تكوين أكاديمي في العلوم التجارية والاقتصادية بجامعة وهران، يجمع بين أسس التسيير الاقتصادي والخبرة الميدانية والتقنية.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم مسارات التعلم -->
+    <section aria-labelledby="tracks-heading">
+      <h2 id="tracks-heading" class="section-title">مسارات تعلم المقاولاتية (مصادر يوتيوب مختارة)</h2>
+      <p class="section-subtitle">اختر المسار التدريبي للوصول المباشر إلى أفضل الدروس والمحاضرات التطبيقية</p>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterTracks('all', this)">جميع الأقسام (3)</button>
+        <button class="filter-btn" onclick="filterTracks('mindset', this)">1. التنمية البشرية (إبراهيم الفقي)</button>
+        <button class="filter-btn" onclick="filterTracks('entrepreneurship', this)">2. المقاولاتية (Labeeb)</button>
+        <button class="filter-btn" onclick="filterTracks('social', this)">3. إدارة مواقع التواصل</button>
+      </div>
+
+      <div class="tracks-grid">
+        <!-- القسم 1 -->
+        <article class="track-card" data-category="mindset">
+          <div>
+            <div class="track-header">
+              <div class="track-number">القسم الأول</div>
+              <h3>التنمية البشرية وبناء عقلية القائد</h3>
+            </div>
+            <p>
+              محاضرات الدكتور <strong>إبراهيم الفقي</strong> رحمه الله لبناء الثقة بالنفس، إدارة الوقت، التخطيط الاستراتيجي الشخصي، وقوة التحكم في الذات قبل إطلاق أي مشروع.
+            </p>
+            <ul class="video-list">
+              <li>قوة التفكير الإيجابي وصناعة القرار</li>
+              <li>إدارة الوقت وتحديد الأهداف الذكية</li>
+              <li>فن القيادة والتأثير وبناء العزيمة</li>
+            </ul>
+          </div>
+          <a class="yt-btn" href="https://www.youtube.com/results?search_query=إبراهيم+الفقي+محاضرات+كاملة" target="_blank" rel="noopener noreferrer">
+            مشاهدة محاضرات د. إبراهيم الفقي على يوتيوب
+          </a>
+        </article>
+
+        <!-- القسم 2 -->
+        <article class="track-card" data-category="entrepreneurship">
+          <div>
+            <div class="track-header">
+              <div class="track-number">القسم الثاني</div>
+              <h3>المقاولاتية وبناء نماذج الأعمال</h3>
+            </div>
+            <p>
+              محتوى عملي من <strong>Labeeb Talks</strong> و<strong>Labeeb Academy</strong> لفهم ريادة الأعمال من الصفر، تحليل السوق، التمويل، وتجنب أخطاء المؤسسين المبتدئين.
+            </p>
+            <ul class="video-list">
+              <li>كيف تبدأ مشروعك وتختبر فكرتك في السوق</li>
+              <li>إعداد مخطط العمل (Business Model Canvas)</li>
+              <li>تجارب رواد الأعمال وإدارة النمو</li>
+            </ul>
+          </div>
+          <a class="yt-btn" href="https://www.youtube.com/results?search_query=Labeeb+Talks+Labeeb+Academy" target="_blank" rel="noopener noreferrer">
+            استكشاف قنوات Labeeb Talks & Academy
+          </a>
+        </article>
+
+        <!-- القسم 3 -->
+        <article class="track-card" data-category="social">
+          <div>
+            <div class="track-header">
+              <div class="track-number">القسم الثالث</div>
+              <h3>إدارة مواقع التواصل الاجتماعي والتسويق</h3>
+            </div>
+            <p>
+              تعلم مهارات إدارة الحسابات التجارية، صناعة المحتوى، الإعلانات الممولة، وبناء الهوية الرقمية لجذب العملاء وزيادة المبيعات.
+            </p>
+            <ul class="video-list">
+              <li>استراتيجيات إدارة صفحات الأعمال وصناعة المحتوى</li>
+              <li>أساسيات الإعلانات الممولة واستهداف الجمهور</li>
+              <li>تحويل المتابعين إلى عملاء وبناء العلامة التجارية</li>
+            </ul>
+          </div>
+          <a class="yt-btn" href="https://www.youtube.com/results?search_query=كورس+إدارة+مواقع+التواصل+الاجتماعي+والتسويق+الرقمي" target="_blank" rel="noopener noreferrer">
+            مشاهدة دروس إدارة مواقع التواصل على يوتيوب
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 <strong>أكاديمية محمد ياسين بوشطر للمقاولاتية</strong> — وهران، الجزائر | مستضاف على GitHub Pages</p>
+  </footer>
+
+  <script>
+    function filterTracks(category, btnElement) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      const cards = document.querySelectorAll('.track-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
