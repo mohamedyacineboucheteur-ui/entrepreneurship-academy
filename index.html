@@ -233,7 +233,30 @@
       justify-content: space-between;
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
+.track-card {
+  <!-- زر التصفية (أضفه داخل filter-bar) -->
+<button class="filter-btn" onclick="filterTracks('import', this)">4. الاستيراد والتوطين البنكي</button>
 
+<!-- البطاقة الرابعة (أضفها داخل tracks-grid) -->
+<article class="track-card" data-category="import">
+  <div>
+    <div class="track-step">القسم الرابع • التجارة الخارجية</div>
+    <h3>الاستيراد عبر البنك والتوطين البنكي</h3>
+    <p>
+      دليل عملي لفهم إجراءات الاستيراد القانوني في الجزائر: مسار <strong>الاستيراد المصغر للمقاول الذاتي</strong> عبر بنك BEA، ومسار <strong>التوطين البنكي والاعتماد المستندي</strong> للشركات.
+    </p>
+    <ul class="topic-list">
+      <li>الاستيراد المصغر: فتح حساب العملة الصعبة وبطاقة Mastercard BEA</li>
+      <li>التوطين البنكي: تجهيز الفاتورة الأولية (Proforma) قبل الشحن</li>
+      <li>الفرق بين الاعتماد المستندي (LC) والتحويل البنكي والتخليص الجمركي</li>
+    </ul>
+  </div>
+  <a class="yt-link" href="https://www.youtube.com/results?search_query=شرح+التوطين+البنكي+والاستيراد+في+الجزائر+المقاول+الذاتي" target="_blank" rel="noopener noreferrer">
+    مشاهدة شروحات الاستيراد والتوطين البنكي ◀
+  </a>
+</article>
+   <div class="filter-bar">
+    
     .track-card:hover {
       transform: translateY(-4px);
       border-color: var(--dz-red);
